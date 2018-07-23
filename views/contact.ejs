@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= username %>:<%= query %></title>
+  <link rel="shortcut icon" type="image/jpg" href="../images/logo.jpg">
+  <link rel="stylesheet" type="text/css" href="../style/main.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="contain">
+    <div class="container">
+  <nav class="nav navbar-custom">
+    <div class="container-fluid" id="heading">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/dashboard"><i class="fa fa-home" aria-hidden="true" style="font-size: 1.5em;margin-top:5px;"></i></a></li>
+        <li><a href="/contact"><i class="fa fa-comments" aria-hidden="true" style="font-size: 1.5em;margin-top:5px;"></i></a></li>
+        <div class="nav navbar-header" style="margin-right: 300px;margin-left: 300px;">
+        <nav class="navbar-brand"><a href="/dashboard"><img src="../images/logo.jpg" style="height:40px;width:40px;border-radius: 0%;padding-bottom: 2px;"></a></nav>
+        </div>
+        <li><a href="/logout" style="margin-right: 200px;"><i class="fas fa-sign-out-alt" style="font-size: 1.5em;margin-top: 5px;"></i></a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+</div>
+<div class="container">
+    <h1 class="brand"><span>Resturante</span></h1>
+    <div class="wrapper animated bounceInLeft">
+      <div class="company-info">
+        <h3>Query Form</h3>
+        <ul>
+          <li style="display:block;font-size:17px;padding-top:16px;padding-bottom:16px"><i class="fa fa-phone"></i> (+91)-9413605678</li>
+          <li style="display:block;font-size:17px;"><i class="fa fa-envelope"></i>resturante550@gmail.com</li>
+        </ul>
+      </div>
+      <div class="contact" name="contact">
+        <h3>Email Us</h3>
+        <form method="POST" action="send">
+          <p>
+            <label>Name</label>
+            <input type="text" name="name">
+          </p>
+          <p>
+            <label>Company</label>
+            <input type="text" name="company">
+          </p>
+          <p>
+            <label>Email Address</label>
+            <input type="email" name="email">
+          </p>
+          <p>
+            <label>Phone Number</label>
+            <input type="text" name="phone">
+          </p>
+          <p class="full">
+            <label>Message</label>
+            <textarea name="message" rows="5"></textarea>
+          </p>
+          <p class="full">
+            <button type="submit">Submit</button>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+  <footer id="myFooter" style="margin-top: 20px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 myCols">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="/tag">Explore</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 myCols">
+                    <h5>About us</h5>
+                    <ul>
+                        <li><a href="/about">About Restaurante</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 myCols">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>Restaurante © 2018. All rights reserved. </p>
+        </div>
+    </footer>
+</body>
+</html>

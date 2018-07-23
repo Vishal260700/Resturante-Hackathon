@@ -1,0 +1,90 @@
+<!DOCTYPE>
+<head>
+  <link rel="shortcut icon" type="image/jpg" href="../images/logo.jpg">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <title>Resturante-Register</title>
+  <style>
+body{
+  font: normal 16px Arial, Helvetica, sand-serif;
+  color:blue;
+  background: linear-gradient(to right, #AF7AC5 , #F4D03F);
+}
+
+#particles-js{
+  background: linear-gradient(to right, #AF7AC5 , #F4D03F);
+  height:120%;
+}
+#login{
+
+  position:absolute;
+  top:2%;
+  left:35%;
+  background:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3))
+}
+label{
+  color: white;
+}
+
+  </style>
+</head>
+<body>
+  <div id="particles-js">
+    <div id="login" class="col-md-4" style="border:1px solid black;border-radius: 10px;padding: 10px;">
+      <center>
+    <img src="../images/logo.jpg" style="width: 10%;">
+      </center>
+    <h2 class="page-header" style="color: white;text-align: center;">Resturante Register</h2>
+    <p style="color: #2ECC71; background: #ABEBC6;width: 100%;text-align: center;border-radius: 5px;padding: 10px;">Its Great to See You Registering For Resturante</p>
+    <form method="post" action="/users/register">
+   <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" placeholder="Name" name="name">
+  </div>
+  <div class="form-group">
+    <label>Username</label>
+    <input type="text" class="form-control" placeholder="Username" name="username">
+  </div>
+   <div class="form-group">
+    <label>Email</label>
+    <input type="email" class="form-control" placeholder="Email" name="mail">
+  </div>
+   <div class="form-group">
+    <label>Phone Number</label>
+    <input type="text" class="form-control" placeholder="(+91-)" name="phone">
+  </div>
+   <div class="form-group">
+    <label>Your Discription</label>
+    <input type="text" class="form-control" placeholder="Anything that Defines you" name="about">
+  </div>
+   <div class="form-group">
+    <label>Profile Pic</label>
+    <input type="file" class="form-control" name="profile">
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" class="form-control" placeholder="Password" name="password">
+  </div>
+  <div class="form-group">
+    <label>Confirm Password</label>
+    <input type="password" class="form-control" placeholder="Password" name="password2">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+    <a class="btn btn-info" style="margin-left: 69%;" href="/">Login</a>
+</form>
+  </div>
+</form>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <script>
+    particlesJS.load('particles-js', '../js/particles.json', function(){
+      console.log('particles.json loaded...');
+    });
+  </script>
+</body>
+</html>

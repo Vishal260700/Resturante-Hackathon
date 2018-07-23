@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= DishName %></title>
+  <link rel="stylesheet" type="text/css" href="../style/main.css">
+  <link rel="shortcut icon" type="image/jpg" href="../images/logo.jpg">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="contain">
+    <div class="container">
+  <nav class="nav navbar-custom">
+    <div class="container-fluid" id="heading">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/dashboard"><i class="fa fa-home" aria-hidden="true" style="font-size: 1.5em;margin-top:5px;"></i></a></li>
+        <li><a href="/contact"><i class="fa fa-comments" aria-hidden="true" style="font-size: 1.5em;margin-top:5px;"></i></a></li>
+        <div class="nav navbar-header" style="margin-right: 300px;margin-left: 300px;">
+        <nav class="navbar-brand"><a href="/dashboard"><img src="../images/logo.jpg" style="height:40px;width:40px;border-radius: 0%;padding-bottom: 2px;"></a></nav>
+        </div>
+        <li><a href="/logout" style="margin-right: 200px;"><i class="fas fa-sign-out-alt" style="font-size: 1.5em;margin-top: 5px;"></i></a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+</div>
+<div class="col-md-12">
+  <div class="col-md-4">
+<div class="col-md-12" style="width: 100%;">
+    <ul class="list-group" style="margin-top: 30px;">
+          <li class="list-group-item"><i class="fa fa-star" aria-hidden="true" style="color: #F4D03F;font-size: 1.5em;margin: 5px;"></i> Rating : <%= rating %><button class="btn" style="background: white;margin-left: 50%;" data-toggle="modal" data-target="#rate"><i class="fa fa-edit" aria-hidden="true" style="color: #58D68D;font-size: 1.25em;"></i></button></li>
+          <li class="list-group-item"><i class="fa fa-info-circle" aria-hidden="true" style="color: black;font-size: 1.5em;margin: 5px;"></i> About : <%= aboutDish %><button class="btn" style="background: white;margin-left: 45%;" data-toggle="modal" data-target="#aboutDish"><i class="fa fa-edit" aria-hidden="true" style="color: #58D68D;font-size: 1.25em;"></i></button></li>
+          <li class="list-group-item"><i class="fa fa-calendar" aria-hidden="true" style="color: #288cd0;font-size: 1.25em;margin: 5px;margin-left: 8px;margin-right: 12px;"></i>Date : <%= date %></li>
+          <li class="list-group-item"><i class="fas fa-burn" aria-hidden="true" style="color: #E74C3C;font-size: 1.25em;margin: 5px;margin-left: 8px;margin-right: 12px;"></i>Total Calorific Value : <%= calorie %> Calories</li>
+    </ul>
+  </div>
+</div>
+  <div class="col-md-8" style="margin-top: 20px;">
+    <div class="col-md-12" style="border-bottom: 2px solid #85C1E9;padding-bottom: 10px;border-radius: 100%;">
+      <center>
+      <i class="fas fa-utensils" style="font-size: 3em;color: #85C1E9;"><span style="margin-left: 20px; font-size:1.25em;"><%= DishName %></span></i>
+    </center>
+    </div>
+    <div id="ingredients" class="col-md-12" style="margin-top: 10px;">
+      <div class="col-md-12">
+        <table class="table" style="border:1px solid #CCD1D1;">
+        <tr>
+          <td style="font-size: 20px;text-align: center;color: #F4D03F;"><i class="fas fa-grin-hearts" style="margin: 5px;"></i>Ingredients</td>
+          <td style="font-size: 20px;text-align: center;color: #82E0AA;"><i class="fas fa-weight-hanging" style="margin:5px;"></i>Quantity</td>
+          <td style="font-size: 20px;text-align: center;color: #E74C3C;"><i class="fas fa-burn" style="margin:5px;"></i>Calorific Value</td>
+        <% for(var i = 0 ; i < icaloriesi.length ; i++){%>
+          <tr>
+          <td style="font-size: 20px;text-align: center;color: #212F3D;"><%= inamei[i] %></td>
+          <td style="font-size: 20px;text-align: center;color: #212F3D;"><%= iquantityi[i] %></td>
+          <td style="font-size: 20px;text-align: center;color: #212F3D;"><%= icaloriesi[i] %></td>
+          </tr>
+        <%  } %>
+      </table>
+      </div>
+      <div class="col-md-12">
+        <a data-toggle="modal" data-target="#delete2" class="btn" style="background: #E74C3C; color: white;border-radius: 100%;font-size: 25px;margin-left: 55%;"><i class="fa fa-trash" aria-hidden="true" style="margin: 5px;"></i></a>
+        <a class="btn" style="background: #58D68D; border-radius: 100%;font-size: 25px;margin-left: 5px;" data-toggle="modal" data-target="#updateing"><i class="fa fa-edit" aria-hidden="true" style="color: white;margin: 5px;"></i></a>
+        <a data-toggle="modal" data-target="#adding" class="btn" style="background: #288cd0; color: white;border-radius: 100%;font-size: 25px;margin-left:5px;"><i class="fas fa-plus" style="margin: 5px;"></i></a>
+        <a data-toggle="modal" data-target="#ingdel" class="btn" style="background: #AF7AC5; color: white;border-radius: 100%;font-size: 25px;margin-left:5px;"><i class="fas fa-cut" style="margin: 5px;"></i></a>
+        <a href="/gallery" class="btn" style="background: #F1C40F; color: white;border-radius: 100%;font-size: 25px;margin-left:5px;"><i class="fas fa-camera-retro" style="margin: 5px;"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="modal fade" id="rate" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header" style="background: #58D68D;border-radius:10px;">
+                <button type="button" class="close" data-dismiss="modal" style="color: black;">&times;</button>
+                <h4 class="modal-title" style="color: white;font-weight: bold;">New Rating for <%= username %></h4>
+              </div>
+              <div class="modal-body">
+            <section class="rate">
+                <form action="/rate" method="post">
+                  <table class="table">
+                    <tr class="input">
+                        <td><label for="rating">New Rating</label></td>
+                        <td><input type="range" id="rating" name="rating" min="0" max="10" style="width: 100%;"></td>
+                    </tr>
+                  </table>
+                  <center><button type="submit" class="btn" style="background: #58D68D;color: white;width: 30%;">SUBMIT</button></center>
+                </form>
+            </section>
+              </div>
+            </div>
+            </div>
+        </div>
+        <div class="modal fade" id="ingdel" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header" style="background: #9B59B6;border-radius:10px;">
+                <button type="button" class="close" data-dismiss="modal" style="color: black;">&times;</button>
+                <h4 class="modal-title" style="color: white;font-weight: bold;">Delete Ingredient</h4>
+              </div>
+              <div class="modal-body">
+            <section class="ingdel">
+                <form action="/ingdel" method="post">
+                  <table class="table">
+                    <tr class="input">
+                        <td><label for="ing" style="text-align: center;margin-left: 30px;margin-top: 5px;">Ingredient Name</label></td>
+                        <td><input type="text" id="ing" name="ing" style="width: 100%;border-radius: 5px;border:1px solid white;background:#C39BD3;height: 30px;"></td>
+                    </tr>
+                  </table>
+                  <center><button type="submit" class="btn" style="background: #9B59B6;color: white;width: 30%;">SUBMIT</button></center>
+                </form>
+            </section>
+              </div>
+            </div>
+            </div>
+        </div>
+        <div class="modal fade" id="delete2" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header" style="background: #E9210D;border-radius:10px;">
+                <button type="button" class="close" data-dismiss="modal" style="color: black;">&times;</button>
+                <h4 class="modal-title" style="color: white;font-weight: bold;">You Sure You Want to Delete :: <%= DishName %></h4>
+              </div>
+              <div class="modal-body">
+            <section class="delete2">
+                <form action="/delete2" method="post">
+                  <center><button type="submit" class="btn" style="background: #E9210D;color: white;width: 30%;">Go On</button></center>
+                </form>
+            </section>
+              </div>
+            </div>
+            </div>
+        </div>
+        <div class="modal fade" id="aboutDish" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header" style="background: #58D68D;border-radius:10px;">
+                <button type="button" class="close" data-dismiss="modal" style="color: black;">&times;</button>
+                <h4 class="modal-title" style="color: white;font-weight: bold;">About <%= DishName %></h4>
+              </div>
+              <div class="modal-body">
+            <section class="aboutDish">
+                <form action="/aboutDish" method="post">
+              <table class="table">
+                    <tr class="input">
+                        <td><input type="text" id="aboutD" name="aboutD" style="width: 100%;border-radius: 5px;border:1px solid white;background:#ABEBC6;height: 30px;"></td>
+                    </tr>
+                </table>
+                  <center><button type="submit" class="btn" style="background: #58D68D;color: white;width: 30%;">SUBMIT</button></center>
+                </form>
+            </section>
+              </div>
+            </div>
+            </div>
+        </div>
+       <div class="modal fade" id="delete" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header" style="background: #E9210D;border-radius:10px;">
+                <button type="button" class="close" data-dismiss="modal" style="color: black;">&times;</button>
+                <h4 class="modal-title" style="color: white;font-weight: bold;">You Sure You Want to Delete <%= username %></h4>
+              </div>
+              <div class="modal-body">
+            <section class="delete">
+                <form action="/delete" method="post">
+                  <center><button type="submit" class="btn" style="background: #E9210D;color: white;width: 30%;">Go On</button></center>
+                </form>
+            </section>
+              </div>
+            </div>
+            </div>
+        </div>
+        <div class="modal fade" id="adding" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header" style="background: #288cd0;border-radius:10px;">
+                <button type="button" class="close" data-dismiss="modal" style="color: black;">&times;</button>
+                <h4 class="modal-title" style="color: white;font-weight: bold;">New Ingredient</h4>
+              </div>
+              <div class="modal-body">
+            <section class="adding">
+              <form action="/adding" method="post">
+              <table class="table">
+                    <tr class="input">
+                        <td><label for="ingredient">Ingredient </label></td>
+                        <td><input type="text" id="ingredient" name="ingredient" style="width: 100%;border-radius: 5px;border:1px solid white;background:#AED6F1;height: 30px;"></td>
+                    </tr>
+                    <tr class="input">
+                        <td><label for="quantity">Quantity</label></td>
+                        <td><input type="text" id="quantity" name="quantity" style="width: 100%;border-radius: 5px;border:1px solid white;background:#AED6F1;height: 30px;"></td>
+                    </tr>
+                     <tr class="input">
+                        <td><label for="calories">Calorific Value</label></td>
+                        <td><input type="text" id="calories" name="calories" style="width: 100%;border-radius: 5px;border:1px solid white;background:#AED6F1;height: 30px;"></td>
+                    </tr>
+                </table>
+                  <center><button type="submit" class="btn" style="background: #288cd0;color: white;width: 30%;">SUBMIT</button></center>
+                </form>
+            </section>
+              </div>
+            </div>
+            </div>
+        </div>
+        <div class="modal fade" id="updateing" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header" style="background: #58D68D;border-radius:10px;">
+                <button type="button" class="close" data-dismiss="modal" style="color: black;">&times;</button>
+                <h4 class="modal-title" style="color: white;font-weight: bold;">Making Changes in :: <%= username %></h4>
+              </div>
+              <div class="modal-body">
+            <section class="updateing">
+              <form action="/updateing" method="post">
+              <table class="table">
+                    <tr class="input">
+                        <td><label for="ingredient">Ingredient </label></td>
+                        <td><input type="text" id="ingredient" name="ingredient" style="width: 100%;border-radius: 5px;border:1px solid white;background:#ABEBC6;height: 30px;"></td>
+                    </tr>
+                    <tr class="input">
+                        <td><label for="quantity">Quantity</label></td>
+                        <td><input type="text" id="quantity" name="quantity" style="width: 100%;border-radius: 5px;border:1px solid white;background:#ABEBC6;height: 30px;"></td>
+                    </tr>
+                     <tr class="input">
+                        <td><label for="calories">Calorific Value</label></td>
+                        <td><input type="text" id="calories" name="calories" style="width: 100%;border-radius: 5px;border:1px solid white;background:#ABEBC6;height: 30px;"></td>
+                    </tr>
+                </table>
+                  <center><button type="submit" class="btn" style="background: #58D68D;color: white;width: 30%;">SUBMIT</button></center>
+                </form>
+            </section>
+              </div>
+            </div>
+            </div>
+        </div>
+        <div class="modal fade" id="recipeImage" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header" style="background: #F1C40F;border-radius:10px;">
+                <button type="button" class="close" data-dismiss="modal" style="color: black;">&times;</button>
+                <h4 class="modal-title" style="color: white;font-weight: bold;">Upload Image for :: <%= DishName %></h4>
+              </div>
+              <div class="modal-body">
+            <section class="recipeImage">
+              <form action="/recipeImage" method="post">
+              <table class="table">
+                    <tr class="input">
+                        <td><label for="file" style="padding-top: 10px;">Choose File of your Choice </label></td>
+                        <td><input type="file" id="file" name="file" style="color:black; font-weight: bold;border: 1px solid #ccc; display: inline-block; cursor: pointer; padding: 5px;"></td>
+                    </tr>
+                </table>
+                  <center><button type="submit" class="btn" style="background: #F1C40F;color: white;width: 30%;">SUBMIT</button></center>
+                </form>
+            </section>
+              </div>
+            </div>
+            </div>
+          </div>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+      <footer id="myFooter" style="margin-top: 20px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 myCols">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="/tag">Explore</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 myCols">
+                    <h5>About us</h5>
+                    <ul>
+                        <li><a href="/about">About Restaurante</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 myCols">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>Restaurante © 2018. All rights reserved. </p>
+        </div>
+    </footer>
+
+</body>
+</html>
